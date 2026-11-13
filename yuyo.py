@@ -1293,5 +1293,11 @@ if __name__ == '__main__':
     except BlockingIOError:
         print('Yuyo is already running. Use its system tray icon.')
         sys.exit(0)
-    Mixer().show_all()
+    mixer = Mixer()
+    if '--tray' in sys.argv[1:]:
+        # Initialize the tray without opening the mixer window.
+        mixer.show_all()
+        mixer.hide()
+    else:
+        mixer.show_all()
     Gtk.main()
