@@ -32,21 +32,19 @@ Yuyo is a GTK3 audio mixer for PipeWire and PulseAudio with dedicated **Output**
 - PipeWire with PulseAudio compatibility, or PulseAudio
 - Linux desktop with a system tray, designed for MATE
 
-## Run on Fedora
+## Run from source on Fedora
+
+Download Yuyo and install the dependencies:
 
 ```bash
 sudo dnf install python3-gobject gtk3 pulseaudio-utils
+curl -fLO https://raw.githubusercontent.com/solo2101/Yuyo/main/yuyo.py
 python3 yuyo.py
 ```
 
-To launch directly:
+This opens the mixer window. To launch directly into the system tray, use `python3 yuyo.py --tray`.
 
-```bash
-chmod +x yuyo.py
-./yuyo.py
-```
-
-When you close the window, Yuyo stays available from the system tray. Use **Quit** from its tray menu to exit.
+Closing the mixer window keeps Yuyo running in the system tray. Select **Quit** from the tray menu to exit. Running from source does not configure automatic startup.
 
 ## Build an RPM on Fedora
 
@@ -68,18 +66,18 @@ Build and install:
 
 ```bash
 rpmbuild -bb ~/rpmbuild/SPECS/yuyo.spec
-sudo dnf install ~/rpmbuild/RPMS/noarch/yuyo-1.0.0-1.*.noarch.rpm
+sudo dnf install ~/rpmbuild/RPMS/noarch/yuyo-1.0.0-3.*.noarch.rpm
 ```
 
-The Fedora release suffix in the RPM filename depends on the build system.
+The Fedora release suffix in the RPM filename depends on the build system. The RPM is built locally from source; this repository does not currently provide a downloadable RPM release.
 
 The RPM installs a system-wide MATE autostart entry. Yuyo launches hidden in the system tray at the next MATE login, without opening the mixer window. Click the tray icon to open the mixer. You can also start it hidden with `yuyo --tray`. To disable autostart for your account, use MATE Startup Applications.
 
-For an existing RPM installation, install the new 1.0.0-3 package to upgrade.
+For an existing RPM installation, the same `dnf install` command upgrades to release 1.0.0-3.
 
 ## Version
 
-1.0.0. Initial public release, based on the v33.6 development build.
+Application version: **1.0.0**. RPM package release: **1.0.0-3**. The third RPM revision adds automatic, hidden system-tray startup for MATE.
 
 ## License
 
