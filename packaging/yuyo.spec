@@ -1,6 +1,6 @@
 Name:           yuyo
 Version:        1.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Lightweight GTK3 audio mixer for Linux MATE
 License:        GPL-3.0-only
 URL:            https://github.com/solo2101/Yuyo
@@ -42,8 +42,8 @@ cat > %{buildroot}%{_sysconfdir}/xdg/autostart/yuyo.desktop <<'AUTOSTART'
 [Desktop Entry]
 Type=Application
 Name=Yuyo
-Comment=Start Yuyo audio mixer at login
-Exec=yuyo
+Comment=Start Yuyo in the system tray at login
+Exec=yuyo --tray
 Icon=multimedia-volume-control
 Terminal=false
 OnlyShowIn=MATE;
@@ -56,6 +56,8 @@ AUTOSTART
 %config(noreplace) %{_sysconfdir}/xdg/autostart/yuyo.desktop
 
 %changelog
+* Fri Nov 13 2026 Yuyo Project - 1.0.0-3
+- Start hidden in system tray at MATE login
 * Fri Nov 13 2026 Yuyo Project - 1.0.0-2
 - Start Yuyo automatically at MATE login
 * Fri Nov 13 2026 Yuyo Project - 1.0.0-1
