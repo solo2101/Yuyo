@@ -62,6 +62,10 @@ sudo dnf install ~/rpmbuild/RPMS/noarch/yuyo-1.0.0-1.*.noarch.rpm
 
 The Fedora release suffix in the RPM filename depends on the build system.
 
+The RPM installs a system-wide MATE autostart entry. Yuyo launches automatically at the next MATE login. To disable autostart for your account, use MATE Startup Applications.
+
+For an existing RPM installation, install the new 1.0.0-2 package to upgrade.
+
 ## Version
 
 1.0.0. Initial public release, based on the v33.6 development build.
