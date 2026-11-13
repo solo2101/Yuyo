@@ -37,6 +37,31 @@ chmod +x yuyo.py
 
 When you close the window, Yuyo stays available from the system tray. Use **Quit** from its tray menu to exit.
 
+## Build an RPM on Fedora
+
+Install the RPM build tools:
+
+```bash
+sudo dnf install rpm-build rpmdevtools
+rpmdev-setuptree
+```
+
+Download the source and RPM spec:
+
+```bash
+curl -fL https://raw.githubusercontent.com/solo2101/Yuyo/main/yuyo.py -o ~/rpmbuild/SOURCES/yuyo.py
+curl -fL https://raw.githubusercontent.com/solo2101/Yuyo/main/packaging/yuyo.spec -o ~/rpmbuild/SPECS/yuyo.spec
+```
+
+Build and install:
+
+```bash
+rpmbuild -bb ~/rpmbuild/SPECS/yuyo.spec
+sudo dnf install ~/rpmbuild/RPMS/noarch/yuyo-1.0.0-1.*.noarch.rpm
+```
+
+The Fedora release suffix in the RPM filename depends on the build system.
+
 ## Version
 
 1.0.0. Initial public release, based on the v33.6 development build.
