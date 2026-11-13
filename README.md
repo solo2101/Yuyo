@@ -13,6 +13,17 @@ Yuyo is a GTK3 audio mixer for PipeWire and PulseAudio with dedicated **Output**
 - System tray icon with volume controls
 - Theme-aware icons
 
+## Screenshots
+
+### Output
+![Yuyo Output mixer](screenshots/Yuyo_001.jpg)
+
+### Input
+![Yuyo Input mixer](screenshots/Yuyo_002.jpg)
+
+### Hardware
+![Yuyo Hardware devices](screenshots/Yuyo_003.jpg)
+
 ## Requirements
 
 - Python 3
